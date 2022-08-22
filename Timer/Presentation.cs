@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Timers;
 
 namespace Timer
 {
@@ -23,25 +24,24 @@ namespace Timer
             timer.Start();
         }
 
-        private void TimerTick(object sender, EventArgs e)
+        private void TimerTick(object sender, ElapsedEventArgs e)
         {
-            this.mainWindow.MonitorBlock.Text = model.CurrentTime();
+            mainWindow.MonitorBlock.Dispatcher.Invoke(new Action(() => mainWindow.MonitorBlock.Text = model.CurrentTime()));
         }
-
         private void StartHandler(object sender, EventArgs e)
         {
             string s = "Start";
-            this.mainWindow.MonitorBlock.Text = model.CurrentTime(s);
+                mainWindow.MonitorBlock.Text = model.CurrentTime(s);
         }
         private void StopHandler(object sender, EventArgs e)
         {
             string s = "Stop";
-            this.mainWindow.MonitorBlock.Text = model.CurrentTime(s);
+                mainWindow.MonitorBlock.Text = model.CurrentTime(s);
         }
         private void ResetHandler(object sender, EventArgs e)
         {
             string s = "Reset";
-            this.mainWindow.MonitorBlock.Text = model.CurrentTime(s);
+                mainWindow.MonitorBlock.Text = model.CurrentTime(s);
         }
 
         

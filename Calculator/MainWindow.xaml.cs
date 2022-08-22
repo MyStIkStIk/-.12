@@ -23,6 +23,27 @@ namespace Calculator
         public MainWindow()
         {
             InitializeComponent();
+            new Presentation(this);
+        }
+        public event EventHandler Plus = null;
+        public event EventHandler Minus = null;
+        public event EventHandler Multi = null;
+        public event EventHandler Delit = null;
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            Plus.Invoke(sender, e);
+        }
+        private void Button_Click_1(object sender, RoutedEventArgs e)
+        {
+            Minus.Invoke(sender, e);
+        }
+        private void Button_Click_2(object sender, RoutedEventArgs e)
+        {
+            Multi.Invoke(sender, e);
+        }
+        private void Button_Click_3(object sender, RoutedEventArgs e)
+        {
+            Delit.Invoke(sender, e);
         }
     }
 }

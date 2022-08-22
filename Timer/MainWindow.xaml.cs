@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Timers;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Data;
@@ -28,17 +29,14 @@ namespace Timer
         public event EventHandler Start = null;
         public event EventHandler Stop = null;
         public event EventHandler Reset = null;
-
         private void StartButton_Click(object sender, RoutedEventArgs e)
         {
             Start.Invoke(sender, e);
         }
-
         private void PauseButton_Click(object sender, RoutedEventArgs e)
         {
             Stop.Invoke(sender, e);
         }
-
         private void ResetButton_Click(object sender, RoutedEventArgs e)
         {
             Reset.Invoke(sender, e);
